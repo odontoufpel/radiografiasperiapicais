@@ -96,6 +96,7 @@ $(document).ready(function () {
         prev_area = $("[data-area=" + actual_area + "]").attr("data-prev");
         next_area = $("[data-area=" + actual_area + "]").attr("data-next");
         area = loadJson(prev_area + '.json');
+        var image_h;
 
         $(".radio .col").remove();
         $(".titulo").text(area.area);
