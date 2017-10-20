@@ -50,6 +50,13 @@ $(document).ready(function () {
             scrollTop: $(".content").offset().top
         }, 1000);
         $(".content .col img").css("max-width", "200px");
+        if($('.radiolucidas .radio div').length){
+            $('.radiolucida').show();
+            
+        }else{
+            $('.radiolucida').hide();
+            
+        }
 
     });
 
@@ -73,6 +80,8 @@ $(document).ready(function () {
         $('.modal-body .texto').text(acc_modal[0].description);
         $('.modal-title').text(acc_modal[0].acidente);
         $('.modal-body .acidente img').attr('src', src);
+
+        
     });
 
     $('.modal-body .acidente img').on('mouseover', function () {
@@ -92,7 +101,8 @@ $(document).ready(function () {
         $(this).attr('src', original_src);
     });
 
-    $('.prev-area').on('click', function () {
+    $('.prev-area').on('click', function (e) {
+        e.preventDefault();
         prev_area = $("[data-area=" + actual_area + "]").attr("data-prev");
         next_area = $("[data-area=" + actual_area + "]").attr("data-next");
         area = loadJson(prev_area + '.json');
@@ -112,10 +122,18 @@ $(document).ready(function () {
         });
         actual_area = prev_area;
         $(".content .col img").css("max-width", "200px");
+        if($('.radiolucidas .radio div').length){
+            $('.radiolucida').show();
+            
+        }else{
+            $('.radiolucida').hide();
+            
+        }
 
     });
 
-    $('.next-area').on('click', function () {
+    $('.next-area').on('click', function (e) {
+        e.preventDefault();
         prev_area = $("[data-area=" + actual_area + "]").attr("data-prev");
         next_area = $("[data-area=" + actual_area + "]").attr("data-next");
         area = loadJson(next_area + '.json');
@@ -135,6 +153,13 @@ $(document).ready(function () {
         });
         actual_area = next_area;
         $(".content .col img").css("max-width", "200px");
+        if($('.radiolucidas .radio div').length){
+            $('.radiolucida').show();
+            
+        }else{
+            $('.radiolucida').hide();
+            
+        }
 
     });
 
@@ -208,4 +233,5 @@ $(document).ready(function () {
         }
     });
 
+   
 });
